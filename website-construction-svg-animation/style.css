@@ -1,0 +1,117 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  padding: 50px;
+  margin: 0;
+  overflow: hidden;
+  background-color: #FAFAFA;
+}
+
+@-webkit-keyframes swinging {
+  0% {
+    -webkit-transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-5deg);
+  }
+  100% {
+    -webkit-transform: rotate(10deg);
+  }
+}
+@keyframes swinging {
+  0% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(10deg);
+  }
+}
+@-webkit-keyframes sleeping {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes sleeping {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+#swinger {
+  -webkit-transform-origin: top center;
+  transform-origin: top center;
+  transform-box: fill-box;
+  -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+  animation: swinging 3.5s ease-in-out forwards infinite;
+}
+
+#zone {
+  opacity: 0;
+  -webkit-animation: sleeping 3.5s ease-in-out forwards infinite;
+  animation: sleeping 3.5s ease-in-out forwards infinite;
+}
+
+#ztwo {
+  opacity: 0;
+  -webkit-animation: sleeping 3.5s ease-in-out forwards infinite;
+  animation: sleeping 3.5s ease-in-out forwards infinite;
+  animation-delay: 0.4s;
+  -website-animation-delay: 0.4s;
+}
+
+#zthree {
+  opacity: 0;
+  -webkit-animation: sleeping 3.5s ease-in-out forwards infinite;
+  animation: sleeping 3.5s ease-in-out forwards infinite;
+  animation-delay: 0.7s;
+  -website-animation-delay: 0.7s;
+}
+
+#zfour {
+  opacity: 0;
+  -webkit-animation: sleeping 3.5s ease-in-out forwards infinite;
+  animation: sleeping 3.5s ease-in-out forwards infinite;
+  animation-delay: 1s;
+  -website-animation-delay: 1s;
+}
+
+#zfive {
+  opacity: 0;
+  -webkit-animation: sleeping 3.5s ease-in-out forwards infinite;
+  animation: sleeping 3.5s ease-in-out forwards infinite;
+  animation-delay: 1.3s;
+  -website-animation-delay: 1.3s;
+}
+
+.container {
+  text-align: center;
+}
+
+svg {
+  max-width: 1000px;
+}

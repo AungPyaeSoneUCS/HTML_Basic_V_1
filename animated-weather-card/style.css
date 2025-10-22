@@ -1,0 +1,353 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+body {
+	background: #f5f5f5;
+	font-family: "Plus Jakarta Sans", sans-serif;
+	font-weight: 300;
+}
+
+header {
+	padding: 16px;
+	text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-weight: 700;
+}
+
+.card {
+	position: relative;
+	overflow: hidden; /* Ensure vertical scrolling */
+	height: 566px;
+	width: 350px;
+	margin: auto;
+	border: none;
+	border-radius: 32px;
+}
+
+.sun,
+.moon {
+	position: absolute;
+
+	left: 50%;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	transform-origin: 0px 220px;
+	transition: all 1s;
+	transform: rotate(-90deg); /* Initial rotation of -90 degrees */
+}
+
+.sun {
+	bottom: 300px;
+	background: #fceabb;
+	box-shadow: 0px 0px 40px 15px #fceabb;
+	opacity: 1;
+}
+
+.moon {
+	bottom: 250px;
+	background: url("https://drive.google.com/thumbnail?id=1nbYvuzW1fU3iiXoxKeMSb4TvP7rkryuy&sz=w1000");
+	background-size: contain;
+	box-shadow: 0px 0px 20px 5px #ffffff;
+	opacity: 0;
+}
+
+@keyframes rise-set {
+	0% {
+		transform: rotate(-90deg);
+	}
+	100% {
+		transform: rotate(90deg);
+	}
+}
+
+.hours-container {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	overflow-x: scroll;
+	white-space: nowrap;
+	backdrop-filter: blur(20px);
+}
+
+.hours {
+	display: flex;
+	padding: 8px;
+}
+
+.hours-container {
+	scroll-behavior: smooth;
+}
+
+.hour {
+	padding: 5px 10px;
+	cursor: pointer;
+	margin: 2px;
+	transition: background-color 0.3s ease;
+	border-radius: 16px;
+	height: 107px;
+	min-width: 80px;
+	text-align: center;
+}
+
+.hour:hover {
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+.active {
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+.last {
+	min-width: 150px;
+}
+
+.background {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(0deg, #fefefe 0%, #00a4e4 74%);
+	z-index: 0;
+	transition: all 2s linear;
+}
+
+.backgroundNight {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(0deg, #4c5177 0%, #051428 74%);
+	z-index: -1;
+	transition: all 2s linear;
+}
+
+.card,
+.card-body {
+	background: transparent !important;
+	padding: 0;
+}
+
+.rain {
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+}
+
+.drop {
+	background: -webkit-gradient(
+		linear,
+		0% 0%,
+		0% 100%,
+		to(rgba(255, 255, 255, 0.6)),
+		from(rgba(255, 255, 255, 0))
+	);
+	background: -moz-linear-gradient(
+		top,
+		rgba(255, 255, 255, 0.6) 0%,
+		rgba(255, 255, 255, 0) 100%
+	);
+	width: 1px;
+	height: 30px;
+	position: absolute;
+	bottom: 0px;
+	-webkit-animation: fall 0.3s linear infinite;
+	-moz-animation: fall 0.3s linear infinite;
+}
+
+/* animate the drops*/
+@-webkit-keyframes fall {
+	to {
+		margin-top: 500px;
+	}
+}
+@-moz-keyframes fall {
+	to {
+		margin-top: 500px;
+	}
+}
+
+.temperature {
+	position: absolute;
+	z-index: 2;
+	right: 24px;
+	top: 24px;
+	text-align: right;
+	font-size: 40px;
+	font-weight: 600;
+}
+
+.weatherType {
+	position: absolute;
+	z-index: 2;
+	right: 24px;
+	top: 72px;
+	text-align: right;
+	font-size: 16px;
+	line-height: 34px;
+	text-transform: capitalize;
+}
+
+.currentDay {
+	position: absolute;
+	z-index: 2;
+	left: 8px;
+	bottom: 144px;
+	text-align: left;
+	font-size: 16px;
+	line-height: 34px;
+}
+
+.hour span {
+	position: relative;
+	display: flex;
+	text-align: center;
+	color: black;
+}
+
+.hour .timeSpan {
+	font-size: 14px;
+	font-weight: 300;
+}
+.hour .tempSpan {
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.hour:last-child::after {
+	width: 300px;
+	height: 1px;
+	content: "";
+}
+
+.hour .material-symbols-rounded {
+	font-size: 32px;
+	line-height: 40px;
+}
+
+.hour[data-weather="sunny"] .material-symbols-rounded::after {
+	content: "sunny";
+}
+
+.hour[data-weather="clear-night"] .material-symbols-rounded::after {
+	content: "clear_night";
+}
+
+.hour[data-weather="partly-cloudy"] .material-symbols-rounded::after {
+	content: "partly_cloudy_day";
+}
+
+.hour[data-weather="partly-cloudy-night"] .material-symbols-rounded::after {
+	content: "partly_cloudy_night";
+}
+
+.hour[data-weather="cloudy"] .material-symbols-rounded::after {
+	content: "cloud";
+}
+
+.hour[data-weather="foggy"] .material-symbols-rounded::after {
+	content: "foggy";
+}
+
+.hour[data-weather="rainy"] .material-symbols-rounded::after {
+	content: "rainy";
+}
+
+.hour[data-weather="snowy"] .material-symbols-rounded::after {
+	content: "ac_unit";
+}
+
+.hour[data-weather="thunderstorm"] .material-symbols-rounded::after {
+	content: "thunderstorm";
+}
+
+.card {
+	color: black;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+		rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+	border: none;
+}
+
+.credit {
+	box-shadow: none;
+	border-radius: 0;
+}
+
+a {
+	color: black;
+}
+
+#cloud {
+	position: absolute;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url("");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%;
+	filter: brightness(200%) drop-shadow(0 0 10px rgba(255, 255, 255, 01));
+	top: 0;
+	transition: all 2s;
+}
+
+#snow {
+	opacity: 0;
+	top: 0;
+	position: absolute;
+	pointer-events: none;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+	transition: all 2s;
+}
+
+#rain {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	transition: all 2s;
+}
+
+#lightning {
+	position: absolute;
+	top: -200px;
+	left: 0;
+	width: 100%;
+	height: 150%;
+	background: radial-gradient(
+		closest-side,
+		rgba(255, 255, 255, 1),
+		rgba(255, 255, 255, 0.5)
+	);
+	opacity: 0;
+	pointer-events: none;
+	animation: lightningFlash var(--lightning-duration) linear infinite;
+}
+
+@keyframes lightningFlash {
+	0%,
+	100% {
+		opacity: 0;
+	}
+	24% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 1;
+	}
+	26% {
+		opacity: 0;
+	}
+	28% {
+		opacity: 1;
+	}
+	29% {
+		opacity: 0;
+	}
+}

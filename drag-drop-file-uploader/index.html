@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Drag &amp; Drop File Uploader</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div class="container">
+        <div class="uploader">
+            <h1>File Uploader</h1>
+            
+            <div class="upload-area" id="upload-area">
+                <div class="upload-icon">📁</div>
+                <div class="upload-text">Drag and drop files here</div>
+                <div class="upload-subtext">or click to browse</div>
+                <input type="file" id="file-input" multiple>
+            </div>
+            
+            <div class="file-list" id="file-list">
+                <!-- Files will be listed here -->
+            </div>
+            
+            <button class="upload-btn" id="upload-btn" disabled>Upload Files</button>
+        </div>
+    </div>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>

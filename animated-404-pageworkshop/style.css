@@ -1,0 +1,44 @@
+body {
+	height: 100vh;
+	background: #88DCD5;
+  display:grid;
+  font-family: 'Roboto Condensed', sans-serif;
+
+  }
+  p, a {
+    margin: 0;
+    position: absolute;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #032C3F;
+    font-size: 24px;
+  }
+
+  .container {
+  position: relative;
+  height: 600px;
+  width: 750px;
+  margin: auto;
+}
+
+.container svg {
+  height: 100%;
+}
+  .textA {
+    top: 169px;
+    left: 257px;
+    transform: rotate(-3deg);
+  }
+  .textB {
+    font-weight: 700;
+    font-size: 135px;
+    top: 209px;
+    left: 273px;
+    transform: rotate(-2deg);
+  }
+  .textC {
+    top: 370px;
+    left: 428px;
+    font-size: 30px;
+    transform: rotate(1deg);
+  }
